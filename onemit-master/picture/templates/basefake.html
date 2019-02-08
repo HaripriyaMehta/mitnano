@@ -1,0 +1,192 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<html className="one-world">
+<!-- <form className="search-bar" action="/get-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input className="search-button" type="submit" value="search"> 
+</form> -->
+<!-- <form id="searchform" method="get" action="find/{{ name }}" accept-charset="utf-8">
+    <input class="search-bar" id="searchbox" name="q" type="text" placeholder="Search" value="{{ name }}">
+    <button class="search-button" type="submit" value="search">
+        <i class="fa fa-search">Search</i>
+    </button>
+</form> -->
+<!DOCTYPE html>
+<html lang="en" class="no-js theme--custom">
+
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<meta property="description" content="The mission of MIT is to advance knowledge and educate students in science, technology and other areas of scholarship that will best serve the nation and the world in the 21st century." />
+	<meta property="og:site_name" content="Massachusetts Institute of Technology" />
+	<meta property="og:site" content="http://onemit.mit.edu" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="The Massachusetts Institute of Technology (MIT)" />
+	<meta property="og:url" content="http://onemit.mit.edu" />
+	<meta property="og:description" content="The mission of MIT is to advance knowledge and educate students in science, technology and other areas of scholarship that will best serve the nation and the world in the 21st century." />
+
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/static/css/main.css" media="all" />
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+<link rel="stylesheet" href="/themes/mit/assets/css/ie-7-8.css?peuqxh" media="all" />
+<![endif]-->
+<!--     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113637181-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-1592615-11', {
+		'custom_map': {'dimension1': 'Search Term'},
+		'anonymize_ip': true
+	});
+	gtag('config', 'UA-1592615-30 ', {
+		'custom_map': {'dimension1': 'Search Term'},
+		'anonymize_ip': true
+	});  
+</script> -->
+    <style>.theme--custom{--primary-spot:58,109,255;--primary-text:0,0,0;--primary-bg:255,255,255;--primary-bg--alt:255,255,255;--secondary-spot:95,152,255;--secondary-text:255,255,255;--secondary-bg:0,0,0;--search-spot:95,152,255;--search-text:255,255,255;--search-bg:0,0,0;}</style>
+</head>
+
+<body class="front homepage spotlight">
+    <!-- <a href="#main" class="skip-to-content">Skip to content ↓</a> -->
+    <!-- <div id="notification">
+        <notification v-if="isHomepage"></notification>
+    </div>
+     -->
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+     <!--Navigation bar-->
+<!-- 	<div id="nav-placeholder">
+
+	</div>
+
+	<script>
+		$(function(){
+	  		$("#nav-placeholder").load("/static/nav.html");
+		});
+	</script> -->
+	<!--end of Navigation bar-->
+
+	<nav class="site-nav">
+    <div class="site-nav__width">
+        <a class="site-nav__logo-link" href="/">
+                <svg width="85" viewBox="0 0 73 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mit-logo site-nav__logo">
+                    <polygon class="logo-color--primary" points="52.785 8.063 72.785 8.063 72.785 0.063 52.785 0.063"></polygon>
+                    <polygon class="logo-color--primary" points="13.785 26.063 21.785 26.063 21.785 0.063 13.785 0.063"></polygon>
+                    <polygon class="logo-color--primary" points="26.785 38.063 34.785 38.063 34.785 0.063 26.785 0.063"></polygon>
+                    <polygon class="logo-color--primary" points="0.785 38.063 8.785 38.063 8.785 0.063 0.785 0.063"></polygon>
+                    <polygon class="logo-color--primary" points="52.785 38.063 60.785 38.063 60.785 13.063 52.785 13.063"></polygon>
+                    <polygon class="logo-color--primary" points="39.785 8.063 47.785 8.063 47.785 0.063 39.785 0.063"></polygon>
+                    <polygon class="logo-color--secondary" points="40 38 48 38 48 13 40 13"></polygon>
+                </svg>      <h1 class="visually-hidden">Massachusetts Institute of Technology</h1>
+            </a>
+        <ul class="site-nav__links">
+            <li class="site-nav__link-item menu-item--collapsed">
+                <a href="/about" class="site-nav__link js-nav-item menu-item--collapsed" data-drupal-link-system-path="node/11">About</a>
+            </li>
+            <li class="site-nav__link-item menu-item--collapsed">
+                <a href="/process" class="site-nav__link js-nav-item menu-item--collapsed" data-drupal-link-system-path="node/12">Process</a>
+            </li>
+            <li class="site-nav__link-item">
+                <a href="/thanks" class="site-nav__link js-nav-item" data-drupal-link-system-path="node/13">Thanks</a>
+            </li>
+            <li class="site-nav__link-item">
+                <a href="/faq" class="site-nav__link js-nav-item" data-drupal-link-system-path="node/14">FAQ</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    
+    <main class="primary-container">
+        <!-- Autosuggest UI handled by Vue.js components -->
+        <div class="es-search-mod" id="search-app" @keydown.up.exact.prevent="onUp" @keydown.down.exact.prevent="onDown" @keydown.tab.exact="onTab" @keydown.shift.tab.exact="onShiftTab" :class="{
+		'search-has-quick-links': searchMode
+	}">
+            <div class="es-search__overflow">
+                <div class="es-search__width js-search-terms">
+                	<!-- <form id="searchform" method="get" action="find/{{ name }}" accept-charset="utf-8"> -->
+                    <form method="GET" action="find/{{ name }}" id="es-search-form" class="es-search-form js-es-search-form">
+                        <label for="es-search-form-input" class="es-search__label js-search-trigger">Find your name in the dome!</label>
+                        <div class="es-search__box-mod">
+                            <svg width="30" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="currentColor" stroke-width="1.5" class="icon--search-mag search-box__mag">
+                                <g stroke="currentColor" stroke-width="1.5" fill="none">
+                                    <circle cx="9.20757329" cy="8.99160695" r="8.50646589"></circle>
+                                    <path d="M14.8522097,14.6362434 L20.7140392,20.4980728" id="Line-4"></path>
+                                </g>
+                            </svg>
+                            <div class="es-search__box-trigger js-search-trigger">
+                            </div>
+                            <input type="query" v-model="query" v-on:click="onFocus" v-on:keydown="onKeydown" v-on:keyup="onInput" ref="searchInput" class="es-search__box js-search-input" placeholder="Enter your first and last names." id="es-search-form-input" autocomplete="off" name="q">
+                            <button v-on:click="resetQuery" v-if="searchMode" ref="resetButton" class="es-search__reset js-search-reset" type="reset" for="es-search-form" aria-label="reset">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" class="form-reset">
+                                    <circle fill="red" cx="13" cy="13" r="13" />
+                                    <path class="st1" d="M9.9 9.9l6.5 6.5M16.4 9.9l-6.5 6.5" />
+                                </svg>
+                            </button>
+                            <div class="es-search__results-mod" v-if="query.length">
+                                <result-list ref="results" :query="query"></result-list>
+                           
+                   
+                            </div>
+                        </div>
+                    </form>
+                    <suggested-links v-if="!query.length"></suggested-links>
+                </div>
+            </div>
+            <wallpaper-image v-if="searchMode"></wallpaper-image>
+        </div>
+        <footer class="site-footer">
+            <div class="site-footer__utility-mod">
+                <p class="site-footer__name">
+                    Massachusetts Institute of Technology
+                </p>
+                <div class="site-footer__contact-info">
+                    <a href="https://www.google.com/maps/place/Massachusetts+Institute+of+Technology/@42.360091,-71.09416,15z/data=!4m5!3m4!1s0x0:0xd0e08ea5b308203c!8m2!3d42.360091!4d-71.09416" target="_blank" class="site-footer__contact-info-link">77 Massachusetts Avenue, Cambridge, MA, USA</a>
+                </div>
+            </div>
+        </footer>
+        <script src="/themes/mit/assets/js/modernizr.js?peuqxh"></script>
+        <!--[if gt IE 8]><!-->
+        <script src="/static/js/main.js"></script>
+        <!--<![endif]-->
+        <!--[if lt IE 9]>
+<script src="/themes/mit/assets/js/ie-7-8.js?peuqxh"></script>
+<![endif]-->
+<!--         <script type='text/javascript'>
+        (function() {
+            var g = function(e, h, f, g) {
+                this.get = function(a) { for (var a = a + "=", c = document.cookie.split(";"), b = 0, e = c.length; b < e; b++) { for (var d = c[b];
+                            " " == d.charAt(0);) d = d.substring(1, d.length); if (0 == d.indexOf(a)) return d.substring(a.length, d.length) } return null };
+                this.set = function(a, c) { var b = "",
+                        b = new Date;
+                    b.setTime(b.getTime() + 6048E5);
+                    b = "; expires=" + b.toGMTString();
+                    document.cookie = a + "=" + c + b + "; path=/; " };
+                this.check = function() { var a = this.get(f); if (a) a = a.split(":");
+                    else if (100 != e) "v" == h && (e = Math.random() >= e / 100 ? 0 : 100), a = [h, e, 0], this.set(f, a.join(":"));
+                    else return !0; var c = a[1]; if (100 == c) return !0; switch (a[0]) {
+                        case "v":
+                            return !1;
+                        case "r":
+                            return c = a[2] % Math.floor(100 / c), a[2]++, this.set(f, a.join(":")), !c } return !0 };
+                this.go = function() { if (this.check()) { var a = document.createElement("script");
+                        a.type = "text/javascript";
+                        a.src = g + "&t=" + (new Date()).getTime();
+                        document.body && document.body.appendChild(a) } };
+                this.start = function() { var a = this;
+                    window.addEventListener ? window.addEventListener("load", function() { a.go() }, !1) : window.attachEvent && window.attachEvent("onload", function() { a.go() }) }
+            };
+            try {
+                (new g(100, "r", "QSI_S_SI_etUj4JHBLwq9fIV", "https://znbsgdeu4idqsr8db-mit.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_SIID=SI_etUj4JHBLwq9fIV&Q_LOC=" + encodeURIComponent(window.location.href))).start() } catch (i) {}
+        })();
+        </script> -->
+        <!-- <div id='SI_etUj4JHBLwq9fIV' style="margin:0"></div> -->
+</body>
+
+</html>
+
+</html>
